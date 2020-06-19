@@ -8,9 +8,9 @@ const NavBar = ({ title }) => {
     return (
         <React.Fragment>
             <div className='nav-container'>
-                <FiMenu onClick={() => setShowMenu(!showMenu)} />
-                <h1>{title}</h1>
-                <div className='modal-menu' style={{display: showMenu ? 'block' : 'none'}}>
+                <FiMenu size={30} onClick={() => setShowMenu(!showMenu)} />
+                <h1 className='title'>{title}</h1>
+                <div className='modal-menu' style={{display: showMenu ? 'flex' : 'none'}}>
                     <ul>
                         <li>
                             <Link href='/home'>
