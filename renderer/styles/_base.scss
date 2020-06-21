@@ -17,3 +17,18 @@ body {
 html, body, #root {
     height: 100%;  
 }
+
+div.container {
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    padding: 5px;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+}

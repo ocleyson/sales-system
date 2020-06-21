@@ -17,8 +17,22 @@ html, body, #root {
   height: 100%;
 }
 
+div.container {
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  padding: 5px;
+  background-color: #F29F05;
+  border: none;
+  border-radius: 5px;
+}
+
 div.modal-container {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -27,14 +41,42 @@ div.modal-container {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 div.modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #888;
-  width: 80%;
+  width: 400px;
+  border-radius: 5px;
+}
+
+div.modal-content form {
+  width: 100%;
+}
+
+div.modal-content input {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  height: 25px;
+  border: none;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+div.modal-content button {
+  margin-right: 10px;
 }
 
 div.nav-container {
@@ -64,16 +106,60 @@ div.modal-menu {
   top: 71px;
 }
 
-div.modal-menu ul {
-  list-style: none;
-}
-
-div.modal-menu ul li {
+div.modal-menu li {
   margin-bottom: 5px;
 }
 
-div.modal-menu ul li a {
+div.modal-menu li a {
   text-decoration: none;
   color: black;
+}
+
+ul.ul-products {
+  width: 50%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 2px 2px 4px 1px #F29F05;
+          box-shadow: 2px 2px 4px 1px #F29F05;
+  margin-top: 10px;
+}
+
+ul.ul-products li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+input[name='search'] {
+  border-radius: 5px;
+  margin-right: 10px;
+  height: 25px;
+  width: 300px;
+  border: none;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }
 /*# sourceMappingURL=index.css.map */

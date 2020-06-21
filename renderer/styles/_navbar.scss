@@ -20,16 +20,12 @@ div.modal-menu {
     background-color: $primary-color;
     top: 71px;
 
-    ul {
-        list-style: none;
+    li {
+        margin-bottom: 5px;
 
-        li {
-            margin-bottom: 5px;
-
-            a {
-                text-decoration: none;
-                color: black
-            }
+        a {
+            text-decoration: none;
+            color: black
         }
     }
 }

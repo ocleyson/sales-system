@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import '../styles/index.css';
+import NavBar from '../components/navbar';
 
 const Home = () => {
     
@@ -11,6 +12,7 @@ const Home = () => {
         <title>Home</title>
       </Head>
       <div>
+          <NavBar title='Home' />
         <p>
           ⚡ Electron + Next.js ⚡ -
           <Link href="/products">

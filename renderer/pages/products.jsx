@@ -3,6 +3,7 @@ import Head from "next/head";
 import db from "../../database/db";
 import { FiX, FiEdit2 } from "react-icons/fi";
 import Modal from "../components/modal";
+import NavBar from '../components/navbar';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -39,11 +40,15 @@ const Products = () => {
             (err) => {
                 if (err) alert("Houve um erro ao adicionar o produto");
 
-                var productsCopy = [...products];
-                productsCopy.push(product);
+                if (!err) {
+                    var productsCopy = [...products];
+                    productsCopy.push(product);
+
+                    setProducts(productsCopy);
+                }
+
 
                 setShowAddProductModal(false);
-                setProducts(productsCopy);
                 setProduct({
                     id: 0,
                     name: '',
@@ -73,7 +78,7 @@ const Products = () => {
 
                 db.all(`SELECT * FROM products`, (err, res) => {
                     if (err) alert("Houve um erro ao carregar os produtos.");
-                    setProducts(res);
+                    if (!err) setProducts(res);
                 });
 
                 setShowUpdateProductModal(false);
@@ -112,49 +117,57 @@ const Products = () => {
             <Head>
                 <title>Produtos</title>
             </Head>
-            <div>
+            <NavBar title='Produtos' />
+            <div className='container'>
                 <Modal show={showAddProductModal}>
                     <form onSubmit={addProduct}>
+                        <h3>ID:</h3>
                         <input
-                            name="id"
-                            type="number"
+                            name='id'
+                            type='number'
                             value={product.id}
                             onChange={(e) => changeProduct(e)}
                         />
+                        <h3>Nome:</h3>
                         <input
-                            name="name"
-                            type="text"
+                            name='name'
+                            type='text'
+                            placeholder='Digite o nome do produto'
                             value={product.name}
                             onChange={(e) => changeProduct(e)}
                         />
+                        <h3>Preço:</h3>
                         <input
-                            name="price"
-                            type="number"
+                            name='price'
+                            type='number'
                             value={product.price}
                             onChange={(e) => changeProduct(e)}
                         />
-                        <button type="button" onClick={addProduct}>
+                        <button type='button' onClick={addProduct}>
                             Salvar
                         </button>
-                        <button type="button" onClick={() => setShowAddProductModal(false)}>
+                        <button type='button' onClick={() => setShowAddProductModal(false)}>
                             Cancelar
                         </button>
                     </form>
                 </Modal>
                 <Modal show={showUpdateProductModal}>
                     <form onSubmit={addProduct}>
+                        <h3>ID:</h3>
                         <input
                             name="id"
                             type="number"
                             value={product.id}
                             onChange={(e) => changeProduct(e)}
                         />
+                        <h3>Nome:</h3>
                         <input
                             name="name"
                             type="text"
                             value={product.name}
                             onChange={(e) => changeProduct(e)}
                         />
+                        <h3>Preço:</h3>
                         <input
                             name="price"
                             type="number"
@@ -172,6 +185,13 @@ const Products = () => {
                         </button>
                     </form>
                 </Modal>
+                <input
+                    name='search'
+                    type='text'
+                    placeholder='Pesquisar produto'
+                    value={search}
+                    onChange={(e) => searchProduct(e.target.value)}
+                />
                 <button
                     type='button'
                     onClick={() => {
@@ -185,13 +205,7 @@ const Products = () => {
                 >
                     Adicionar produto
                 </button>
-                <input
-                    name="search"
-                    type="text"
-                    value={search}
-                    onChange={(e) => searchProduct(e.target.value)}
-                />
-                <ul>
+                <ul className='ul-products'>
                     {products.map((item) => (
                         <li key={item.id}>
                             <FiEdit2 onClick={() => {
@@ -199,7 +213,7 @@ const Products = () => {
                                 setShowUpdateProductModal(true);
                             }} />
                             <div className='product-info'>
-                                {item.id}-{item.name}-{item.price}
+                                {item.id} {item.name} R${item.price}
                             </div>
                             <FiX onClick={() => removeProduct(item.id)} />
                         </li>
