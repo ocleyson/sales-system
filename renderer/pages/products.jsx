@@ -211,11 +211,13 @@ const Products = () => {
                             <FiEdit2 onClick={() => {
                                 setProduct(item);
                                 setShowUpdateProductModal(true);
-                            }} />
+                            }} style={{marginRight: 15}} />
                             <div className='product-info'>
-                                {item.id} {item.name} R${item.price}
+                                <h2>{item.id}</h2>
+                                <h2>{item.name}</h2>
+                                <h2>R${item.price}</h2>
                             </div>
-                            <FiX onClick={() => removeProduct(item.id)} />
+                            <FiX onClick={() => removeProduct(item.id)} style={{marginLeft: 15}}/>
                         </li>
                     ))}
                 </ul>
