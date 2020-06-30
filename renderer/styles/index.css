@@ -15,6 +15,7 @@ body {
 
 html, body, #root {
   height: 100%;
+  overflow: hidden;
 }
 
 div.container {
@@ -127,15 +128,15 @@ ul.ul-products {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-shadow: 2px 2px 4px 1px #F29F05;
           box-shadow: 2px 2px 4px 1px #F29F05;
   margin-top: 10px;
+  overflow: auto;
+  height: 100%;
+  max-height: 80vh;
 }
 
 ul.ul-products li {
