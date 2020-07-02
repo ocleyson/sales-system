@@ -9,6 +9,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState({
         id: 0,
+        newId: 0,
         name: '',
         price: 0,
     });
@@ -19,7 +20,8 @@ const Products = () => {
     useEffect(() => {
         db.all(`SELECT * FROM products`, (err, res) => {
             if (err) alert("Houve um erro ao carregar os produtos.");
-            setProducts(res);
+            const products = res.map(item => ({ ...item, newId: item.id }))
+            setProducts(products);
         });
     }, []);
 
@@ -51,6 +53,7 @@ const Products = () => {
                 setShowAddProductModal(false);
                 setProduct({
                     id: 0,
+                    newId: 0,
                     name: '',
                     price: 0,
                 });
@@ -59,9 +62,11 @@ const Products = () => {
     }
 
     function changeProduct(e) {
-        var productCopy = { ...product };
+        const name = e.target.name; 
+        const value = e.target.value;
+        const productCopy = { ...product };
 
-        productCopy[e.target.name] = e.target.value;
+        productCopy[name] = value;
 
         setProduct(productCopy);
     }
@@ -69,10 +74,10 @@ const Products = () => {
     function updateProduct(e) {
         e.preventDefault();
 
-        var { id, name, price } = product;
+        var { id, newId, name, price } = product;
 
         db.run(
-            `UPDATE products SET id = '${id}', name = '${name}', price = '${price}' WHERE id = '${id}'`,
+            `UPDATE products SET id = '${newId}', name = '${name}', price = '${price}' WHERE id = '${id}'`,
             (err) => {
                 if (err) alert("Houve um erro ao atualizar o produto");
 
@@ -85,6 +90,7 @@ const Products = () => {
 
                 setProduct({
                     id: 0,
+                    newId: 0,
                     name: '',
                     price: 0,
                 });
@@ -110,6 +116,12 @@ const Products = () => {
 
             setProducts(products.filter((f) => f.id !== id));
         });
+    }
+
+    function setProductToChange(item) {
+        const newId = item.id;
+
+        setProduct({ ...item, newId });
     }
 
     return (
@@ -155,9 +167,9 @@ const Products = () => {
                     <form onSubmit={addProduct}>
                         <h3>ID:</h3>
                         <input
-                            name="id"
+                            name="newId"
                             type="number"
-                            value={product.id}
+                            value={product.newId}
                             onChange={(e) => changeProduct(e)}
                         />
                         <h3>Nome:</h3>
@@ -197,6 +209,7 @@ const Products = () => {
                     onClick={() => {
                         setProduct({
                             id: 0,
+                            newId: 0,
                             name: '',
                             price: 0
                         });
@@ -209,7 +222,7 @@ const Products = () => {
                     {products.map((item) => (
                         <li key={item.id}>
                             <FiEdit2 onClick={() => {
-                                setProduct(item);
+                                setProductToChange(item);
                                 setShowUpdateProductModal(true);
                             }} style={{marginRight: 15}} />
                             <div className='product-info'>
