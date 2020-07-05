@@ -218,14 +218,14 @@ const Products = () => {
                 >
                     Adicionar produto
                 </button>
-                <ul className='ul-products'>
+                <ul className='ul-scrollable'>
                     {products.map((item) => (
                         <li key={item.id}>
                             <FiEdit2 onClick={() => {
                                 setProductToChange(item);
                                 setShowUpdateProductModal(true);
                             }} style={{marginRight: 15}} />
-                            <div className='product-info'>
+                            <div className='li-content'>
                                 <h2>{item.id}</h2>
                                 <h2>{item.name}</h2>
                                 <h2>R${item.price}</h2>

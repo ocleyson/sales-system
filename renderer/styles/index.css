@@ -33,6 +33,64 @@ button {
   border-radius: 5px;
 }
 
+ul.ul-scrollable {
+  width: 50%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 2px 2px 4px 1px #F29F05;
+          box-shadow: 2px 2px 4px 1px #F29F05;
+  margin-top: 10px;
+  overflow: auto;
+  height: 100%;
+  max-height: 80vh;
+}
+
+ul.ul-scrollable li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+ul.ul-scrollable div.li-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+input[name='search'] {
+  border-radius: 5px;
+  margin-right: 10px;
+  height: 25px;
+  width: 300px;
+  border: none;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+}
+
 div.modal-container {
   position: fixed;
   z-index: 1;
@@ -114,63 +172,5 @@ div.modal-menu li {
 div.modal-menu li a {
   text-decoration: none;
   color: black;
-}
-
-ul.ul-products {
-  width: 50%;
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 2px 2px 4px 1px #F29F05;
-          box-shadow: 2px 2px 4px 1px #F29F05;
-  margin-top: 10px;
-  overflow: auto;
-  height: 100%;
-  max-height: 80vh;
-}
-
-ul.ul-products li {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 10px;
-}
-
-input[name='search'] {
-  border-radius: 5px;
-  margin-right: 10px;
-  height: 25px;
-  width: 300px;
-  border: none;
-  padding: 10px;
-  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-          box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-}
-
-div.product-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 /*# sourceMappingURL=index.css.map */
