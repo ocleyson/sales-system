@@ -10,6 +10,13 @@ db.serialize(() => {
             price REAL
         )
     `);
+
+    db.run(`
+        CREATE TABLE IF NOT EXISTS tables (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+        )
+    `);
 });
 
 export default db;
