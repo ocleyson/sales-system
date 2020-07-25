@@ -28,11 +28,6 @@ const NavBar = ({ title }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href='/settings'>
-                                <a>Configurações</a>
-                            </Link>
-                        </li>
-                        <li>
                             <Link href='/help'>
                                 <a>Ajuda</a>
                             </Link>
