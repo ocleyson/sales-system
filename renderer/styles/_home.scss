@@ -1,0 +1,34 @@
+div.home-sale-info-container {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        height: 75vh;
+    }
+
+}
+
+div.sale-info {
+    height: 30px;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+form.home-sale {
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 30px);
+    
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 30px;
+    }
+}

@@ -94,6 +94,48 @@ input[name='search'] {
   width: 300px;
 }
 
+div.home-sale-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.home-sale-info-container ul {
+  height: 75vh;
+}
+
+div.sale-info {
+  height: 30px;
+  border: 1px solid black;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+form.home-sale {
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 30px);
+}
+
+form.home-sale input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
 div.modal-container {
   position: fixed;
   z-index: 1;
