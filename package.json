@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
-    "electron": "^9.0.0",
+    "electron": "^11.5.0",
     "electron-builder": "^22.6.1",
     "next": "^9.4.2",
     "nextron": "^5.14.6",
